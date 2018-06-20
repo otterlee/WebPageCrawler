@@ -1,4 +1,5 @@
 package edu.handong.csee.java.bonushw;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -11,15 +12,16 @@ public class URLReader {
 	URLReader(String inputURLFromCLI){
 		this.url = inputURLFromCLI;
 	}
+	
 	public void read() throws Exception {
 		StringBuffer stringBuffer = new StringBuffer();
         
         try {
-             URL url = new URL("http://www.naver.com");
+            URL url = new URL(this.url);
              
-            // URLConnection 생성
             URLConnection urlConnection = url.openConnection();
-             
+            urlConnection.connect(); 
+           
             InputStream inputStreamUrl = urlConnection.getInputStream();
             InputStreamReader inputStreamReader = new InputStreamReader(inputStreamUrl, "UTF-8");
             BufferedReader br = new BufferedReader(inputStreamReader);

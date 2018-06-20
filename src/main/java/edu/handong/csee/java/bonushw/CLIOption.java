@@ -37,7 +37,7 @@ public class CLIOption {
 			CommandLine cmd = parser.parse(options, args);
 
 			inputURL = cmd.getOptionValue("u");
-			outputPath = cmd.getOptionValue("o");
+			outputPath = cmd.getOptionValue("d");
 			help = cmd.hasOption("h");
 		} catch (Exception e) {
 			printHelp(options);
@@ -49,14 +49,14 @@ public class CLIOption {
 	private Options createOptions() {
 		Options options = new Options();
 
-		options.addOption(Option.builder("i").longOpt("inputURL")
+		options.addOption(Option.builder("u").longOpt("inputURL")
 				.desc("Set a URL you want to save in html file")
 				.hasArg()
 				.argName("the input directory path")
 				.required()
 				.build());
 
-		options.addOption(Option.builder("o").longOpt("outputPath")
+		options.addOption(Option.builder("d").longOpt("outputPath")
 				.desc("Set a file name with path to save html file")
 				.hasArg()
 				.argName("the output directory path")
